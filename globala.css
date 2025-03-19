@@ -1,0 +1,38 @@
+
+body {
+  	margin: 0;
+  	line-height: normal;
+}
+
+
+:root {
+  	
+  	/* Fonts */
+  	--font-open-sans: 'Open Sans';
+  	--font-montserrat: Montserrat;
+  	
+  	/* font sizes */
+  	--font-size-xl: 20px;
+  	--font-size-16xl: 35px;
+  	--font-size-21xl: 40px;
+  	--font-size-41xl: 60px;
+  	
+  	/* Colors */
+  	--color-black: #000;
+  	
+  	/* Paddings */
+  	--padding-11xl: 30px;
+  	--padding-31xl: 50px;
+  	
+  	/* Figma Variables */
+  	
+  	/* Color Variables */
+  	--darkblue: #1a4a8b;
+  	--light-gray: #f0f1f6;
+  	--orange: #c74f0d;
+  	--white: #fff;
+  	
+  	/* Number Variables */
+  	--heightheader: 152px;
+  	
+}
