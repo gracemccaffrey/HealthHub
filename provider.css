@@ -14,12 +14,7 @@
   	font-family: var(--font-open-sans);
 }
 .terminfotext-child {
-  	position: absolute;
-  	top: 1px;
-  	left: 0px;
-  	background-color: var(--light-gray);
-  	width: 1183px;
-  	height: 196px;
+	background-color: transparent;
 }
 .lorem-ipsum-dolor {
   	position: absolute;
@@ -540,3 +535,11 @@
   	font-family: var(--font-montserrat);
 }
 
+/* ‑‑‑ Provider list typography ‑‑‑ */
+#result-list {                    /* makes every list item use site font */
+	font-family: 'Open Sans', sans-serif;   /* or var(--font-open-sans) */
+  }
+  #result-list li {                 /* bumps the size only for the items */
+	font-size: 1.1rem;              /* ≈ 18 px; tweak as you like */
+  }
+  
