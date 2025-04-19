@@ -36,32 +36,32 @@
   <section class="title-inner">
     <h1>Provider Map</h1>
   </section>
-  <section class="grid-background">
-    <!-- Mobile Search Bar -->
-    <section class="location-search movable-search mobile-only">
-      <label for="locationInputMobile">Enter your location:</label>
-      <div class="location-input-wrapper">
-        <input type="text" id="locationInputMobile" placeholder="e.g. 43210 or Columbus, OH" />
-        <button onclick="searchLocation('locationInputMobile')">Go</button>
+  <section class="hero grid-background">
+      <!-- Why This Matters -->
+    <div class="page-description">
+      Finding care can be difficult — we help you locate nearby clinics, urgent care centers, and hospitals with essential information like distance, services, and contact info.
+    </div>
+    
+    <section class="location-search">
+      <label for="locationInput">Enter your location:</label>
+        <div class="location-input-wrapper">
+        <input type="text" id="locationInput" placeholder="e.g. 43210 or Columbus, OH" />
+        <button onclick="searchLocation('locationInput')">Go</button>
+        <div class="use-location-button">
+          <button onclick="useCurrentLocation()">Use My Location!</button>
+        </div>
       </div>
     </section>
+
 
     <section class="map-info-container">
       <!-- Map Column -->
       <div class="map-column" id="map"></div>
       <!-- Sidebar: Desktop Search + Provider Info -->
       <div class="info-column">
-        <!-- Desktop Search Bar -->
-        <section class="location-search movable-search desktop-only">
-          <label for="locationInputDesktop">Enter your location:</label>
-          <div class="location-input-wrapper">
-            <input type="text" id="locationInputDesktop" placeholder="e.g. 43210 or Columbus, OH" />
-            <button onclick="searchLocation('locationInputDesktop')">Go</button>
-          </div>
-        </section>
         <!-- Provider Cards -->
         <div id="provider-info">
-          <p>Select a marker to see more provider info</p>
+          <p>Loading nearby providers...</p>
         </div>
       </div>
     </section>
@@ -92,8 +92,8 @@
    <!-- Footer Scripts -->
   <script src="./js/menu.js"></script>
   <script src="./js/expand.js"></script>
-  <script src="./js/mapData.js"></script>
-  <script src="./js/mapStatic.js"></script> <!-- MUST come before API script -->
+  <!-- <script src="./js/mapData.js"></script> -->
+  <script src="./js/map.js"></script> <!-- MUST come before API script -->
   <script
     async
     defer
