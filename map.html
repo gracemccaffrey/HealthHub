@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HealthHub</title>
+  <link rel="stylesheet" href="./css/styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo-container">
+      <a href="./index.html">
+        <img src="./src/logo.svg" alt="HealthHub Logo" class="logo-icon" />
+        <span class="logo-text"><span class="lb">Health</span><span class="db">Hub</span></span>
+      </a>
+    </div>
+    <nav class="nav-links">
+      <a href="./about.html">about</a>
+      <a href="./map.html" class="active">map</a>
+      <a href="./terms.html">terminology</a>
+      <a href="./faq.html">FAQs</a>
+    </nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="./about.html">about</a>
+    <a href="./map.html" class="activeMobile">map</a>
+    <a href="./terms.html">terminology</a>
+    <a href="./faq.html">FAQs</a>
+  </div>
+  <!-- Map Title Section -->
+  <section class="title-inner">
+    <h1>Provider Map</h1>
+  </section>
+  <section class="grid-background">
+    <!-- Mobile Search Bar -->
+    <section class="location-search movable-search mobile-only">
+      <label for="locationInputMobile">Enter your location:</label>
+      <div class="location-input-wrapper">
+        <input type="text" id="locationInputMobile" placeholder="e.g. 43210 or Columbus, OH" />
+        <button onclick="searchLocation('locationInputMobile')">Go</button>
+      </div>
+    </section>
+
+    <section class="map-info-container">
+      <!-- Map Column -->
+      <div class="map-column" id="map"></div>
+      <!-- Sidebar: Desktop Search + Provider Info -->
+      <div class="info-column">
+        <!-- Desktop Search Bar -->
+        <section class="location-search movable-search desktop-only">
+          <label for="locationInputDesktop">Enter your location:</label>
+          <div class="location-input-wrapper">
+            <input type="text" id="locationInputDesktop" placeholder="e.g. 43210 or Columbus, OH" />
+            <button onclick="searchLocation('locationInputDesktop')">Go</button>
+          </div>
+        </section>
+        <!-- Provider Cards -->
+        <div id="provider-info">
+          <p>Select a marker to see more provider info</p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-section left">
+        <div class="footer-name"><a href="./index.html">HealthHub</a></div>
+        <div class="footer-email">support@healthhub.com</div>
+      </div>
+      <div class="footer-section center">
+        <div class="footer-heading">Quick Links</div>
+        <div class="footer-links">
+          <a href="./about.html">About Us</a>
+          <a href="./map.html">Map</a>
+          <a href="./term.html">Terminology</a>
+          <a href="./faq.html">FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 HealthHub</p>
+    </div>
+  </footer>
+
+   <!-- Footer Scripts -->
+  <script src="./js/menu.js"></script>
+  <script src="./js/expand.js"></script>
+  <script src="./js/mapData.js"></script>
+  <script src="./js/mapStatic.js"></script> <!-- MUST come before API script -->
+  <script
+    async
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoIB3ROTL25vmYTI1mLk6gu4UnKwCNO50&libraries=places,geometry&callback=initMap">
+  </script>
+</body>
+</html>
