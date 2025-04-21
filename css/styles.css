@@ -25,8 +25,9 @@ a {
     text-decoration: none;
     color: var(--darkblue);
 }
-
-
+body, html {
+    height:100%;
+}
 /* ===================== */
 /* Navigation            */
 /* ===================== */
@@ -67,6 +68,9 @@ a {
     font-family: var(--font-montserrat);
     font-weight: 500;
 } 
+.nav-links a:hover {
+    text-decoration: underline;
+}
 .nav-links .active {
     color: var(--orange);
     text-decoration: underline;
@@ -226,7 +230,7 @@ a {
     flex-direction: column;
 }
 .map-column {
-    height: auto;
+    height: 500px;
     flex: 1 1 55%;
 }
 .info-column {
@@ -234,7 +238,7 @@ a {
 }
 #map {
     width: 100%;
-    min-height: 400px;
+    height: 500px;
     border-radius: 8px;
 }
 #provider-info {
@@ -244,6 +248,7 @@ a {
     overflow-y: auto;
     max-height: 500px;
     padding-right: 0.5rem;
+    scroll-behavior:smooth ;
 }
 
 /* ===================== */
@@ -306,18 +311,20 @@ a {
 /* ===================== */
 .provider-list-item {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background: white;
     padding: 0.6rem 0.75rem;
     margin-bottom: 0.5rem;
-    border: 1px solid var(--bordergray);
+    border: 1px solid var(--darkblue);
     border-radius: 6px;
     cursor: pointer;
     font-family: var(--font-montserrat);
     font-size: 0.9rem;
     transition: background 0.2s;
-}
+    text-align: left;
+} 
 .provider-list-item strong {
     font-weight: 600;
 }
@@ -327,6 +334,57 @@ a {
 }
 .provider-list-item:hover {
     background-color: #f2f6ff;
+}
+.active-card {
+    background-color: #eef4ff;
+    border: 1px solid var(--orange);
+    border-left: 6px solid var(--orange);
+}
+.provider-card-header {
+    width: 100%;
+    cursor: pointer;
+}
+  .provider-card-details {
+    width: 100%;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--bordergray);
+}
+.provider-card-details p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: black;
+}
+.primary-specialty {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--darkblue);
+    margin-top: 0.25rem;
+}
+.taxonomy-list {
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+    list-style-type: disc;
+}
+.taxonomy-list li {
+    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+}
+button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+#locationBtn:after {
+    content: '';
+    display: inline;
+}
+#locationBtn[disabled]:after {
+    animation: ellipsis 1.5s infinite;
+}
+ @keyframes ellipsis {
+    0% { content: '.'; }
+    33% { content: '..'; }
+    66% { content: '...'; }
 }
 
 /* ===================== */
@@ -395,16 +453,16 @@ a {
 .info-boxes {
     display: flex;
     justify-content: space-between;
+    gap: 2.5rem;
     flex-wrap: wrap;
     align-items: stretch;
-    padding: 2rem;
+    padding:2rem;
     background-color: var(--lightgray);
 
 }
 .box {
     flex: 1;
     min-width: 280px;
-    margin: 1rem;
     padding: 2rem;
     background: var(--orange);
     display: flex;
@@ -414,7 +472,7 @@ a {
     border-radius: 12px;
 }
 .box h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--lightgray);
     margin-bottom: 0;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -431,7 +489,7 @@ a {
 .box .description {
     text-align: left;
     flex: 1;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 .box-icon {
     width: 50px;
@@ -480,8 +538,10 @@ a {
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: block; }
-    .info-boxes { flex-direction: column; align-items: center; }
+    .info-boxes { flex-direction: column; align-items: center; gap:0;}
     .box { width: 90%; }
+    .box h3 {font-size: 1.75rem;}
+    .box .description {font-size: 0.95rem;}
     .map-info-container { flex-direction: column; }
     .map-column, .info-column { width: 100%; }
     .map-column { height: 400px; }
@@ -493,4 +553,11 @@ a {
     .footer { align-items: flex-start; }
     .hero .question-answer-container { flex-direction: column; align-items: center; }
     .hero .answer { text-align: center; }
+}
+
+/* Remove scroll-into-view behavior on mobile for provider*/
+@media (max-width: 768px) {
+    .provider-list-item {
+      scroll-margin-top: 0;
+    }
 }
