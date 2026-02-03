@@ -21,8 +21,8 @@ async function initMap() {
 
   window.PlaceLib = Place;
   window.RankPref = SearchNearbyRankPreference;
-  searchOrigin = DEFAULT_CENTER;
-  searchProviders(DEFAULT_CENTER);
+
+  searchOrigin = null;
 }
 
 async function searchProviders(center) {
